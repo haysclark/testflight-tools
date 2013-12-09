@@ -1,0 +1,2 @@
+file path is required and must be supplied or set in the script
+Usage: ./testflight_post [-v] [-h] [-d] [-a] [-n] [-c curlfile] [-w testflighturl] [-z dSYMfile] [datafile] [notes]
