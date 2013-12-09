@@ -1,10 +1,5 @@
 #! /bin/sh
-# file: examples/equality_test.sh
-
-oneTimeSetUp()
-{
-  cd ..
-}
+. ./test/helper.sh
 
 tearDown()
 {
@@ -25,5 +20,5 @@ testScriptShouldOutputExpectedVersion()
 	assertEquals 'testflight_post version 1.1' "${firstline}"
 }
 
-# load shunit2
-. /usr/local/bin/shunit2
+# run shunit2
+SHUNIT_PARENT=$0 . $SHUNIT2

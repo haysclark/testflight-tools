@@ -2,7 +2,4 @@ language: c
 install:
   - sudo apt-get install shunit2
 
-before_script:
-  - echo yes
-
-script: make test
+script: ./test/runner
