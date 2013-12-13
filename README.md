@@ -1,7 +1,7 @@
 testflight-tools [![Build Status](https://travis-ci.org/haysclark/testflight-tools.png)](https://travis-ci.org/haysclark/testflight-tools)
 ================
 
-TestFlight-tools is an un-official command-line tool which is a convince wrapper for the Official TestFlight upload API.  The should script, 'testflight_post', makes it very easy to push iOS IPA's or Android APK's to TestFlight.  The intent of the script is to be integrated into Jenkins or other deployment environments or to simple run locally and be triggered via Terminal.
+TestFlight-tools is an un-official command-line tool set which wraps the Official TestFlight upload API.  Currently the soul script, 'testflight_post', makes it very easy to push iOS IPA's or Android APK's to TestFlight.  The script is intented to be integrated into Jenkins or other CI automation environments or to simple be run locally via Terminal.
 
 Enjoy!
 
@@ -9,10 +9,9 @@ Enjoy!
 
 #### Features
 
-* Dry Run, to see the curl command without actually executing it
+* Dry run, to see the curl command without actually executing it
 * Auto-open TestFlight after upload
-* Support for optional dSYM file
-* Support of the 'notify' flag
+* Support optional TestFlight features like dSYM file and notify
 * UnitTested via Travis-CI and shunit2 
 
 Installation
