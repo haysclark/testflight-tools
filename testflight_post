@@ -51,26 +51,35 @@ VERSION=1.1
 DRY_RUN=0
 AUTO_OPEN=0
 MSG=""
-EXPECTED_FLAGS="[-v] [-h] [-d] [-a] [-n] [-c curlfile] [-w testflighturl] [-z dSYMfile] [datafile] [notes]"
+EXPECTED_FLAGS="[-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]"
 
-while getopts "vhdanc:w:u:t:z:" VALUE "${@}" ; do
+PRINT_VERSION(){
+	echo ${NAME} version ${VERSION}
+}
+
+PRINT_HELP(){
+	echo usage: ${NAME} ${EXPECTED_FLAGS}
+	echo
+	echo "Options"
+	echo " -v            	   show version"
+	echo " -d            	   dry run, only show curl command"
+	echo " -a            	   auto-open TestFlight"
+	echo " -n            	   enable notify"
+	echo " -c            	   override curl command"
+	echo " -w            	   override TestFlight www url"
+	echo " -u            	   set upload API token"
+	echo " -t            	   set team API token"
+	echo " -z            	   set path of dSYM zip file"
+	echo "(-h)           	   show this help"
+}
+
+while getopts "vdanc:w:u:t:z:h" VALUE "${@}" ; do
 	if [ "${VALUE}" = "h" ] ; then
-		echo usage: ${NAME} ${EXPECTED_FLAGS}
-		echo
-		echo "Options"
-		echo " -v            	   show version"
-		echo " -d            	   dry run, only show curl command"
-		echo " -n            	   enable notify"
-		echo " -c            	   override curl command"
-		echo " -w            	   override TestFlight www url"
-		echo " -u            	   set upload API token"
-		echo " -t            	   set team API token"
-		echo " -z            	   set path of dSYM zip file"
-		echo "(-h)           	   show this help"
+		PRINT_HELP
 		exit 0
 	fi
 	if [ "${VALUE}" = "v" ] ; then
-		echo ${NAME} version ${VERSION}
+		PRINT_VERSION
 	fi
 	if [ "${VALUE}" = "d" ] ; then
 		DRY_RUN=1
@@ -163,17 +172,6 @@ echo "team_token is not supplied and is file path is required"
 	echo "Usage: $0 ${EXPECTED_FLAGS}"
 	exit 1
 fi
-
-#
-#curl http://testflightapp.com/api/builds.json 
-#   -F file=@testflightapp.ipa
-#   -F dsym=@testflightapp.app.dSYM.zip
-#   -F api_token='your_api_token' 
-#   -F team_token='your_team_token' 
-#   -F notes='This build was uploaded via the upload API' 
-#   -F notify=True 
-#   -F distribution_lists='Internal, QA'
-#
 
 MSG="${CMD_PATH}"
 MSG+=" ${TESTFLIGHT_URL}"
