@@ -13,7 +13,7 @@ setup() {
 
 	[ "$status" -eq 1 ]
 	[ "${lines[0]}" = "file path is required and must be supplied or set in the script" ]
-	[ "${lines[1]}" = "Usage: ./testflight_post [-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]" ]
+	#[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
 }
 
 @test "Script Should Warn If Release Notes Are Missing" {
@@ -21,7 +21,7 @@ setup() {
 	
 	[ "$status" -eq 1 ]
 	[ "${lines[0]}" = "release notes are required and must be supplied or set in the script" ]
-	[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
+	#[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
 }
 
 @test "Script Should Warn If Api Token Is Missing" {
@@ -29,7 +29,7 @@ setup() {
 	
 	[ "$status" -eq 1 ]
 	[ "${lines[0]}" = "api_token is not supplied and is file path is required" ]
-	[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
+	#[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
 }
 
 @test "Script Should Warn If Team Token Is Missings" {
@@ -37,7 +37,7 @@ setup() {
 	
 	[ "$status" -eq 1 ]
 	[ "${lines[0]}" = "team_token is not supplied and is file path is required" ]
-	[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
+	#[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
 }
 
 @test "Script Should Attempt Upload If All Needed Argument Are Used" {
