@@ -9,13 +9,11 @@ setup() {
 }
 
 @test "Script Should Output Expected Requirements" {
-	EXPECTED_USAGE="Usage: ./testflight_post [-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]"
-
 	run testflight_post
 
 	[ "$status" -eq 1 ]
 	[ "${lines[0]}" = "file path is required and must be supplied or set in the script" ]
-	[ "${lines[1]}" = "${EXPECTED_USAGE}" ]
+	[ "${lines[1]}" = "Usage: ./testflight_post [-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]" ]
 }
 
 @test "Script Should Warn If Release Notes Are Missing" {
