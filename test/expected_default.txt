@@ -1,2 +1,0 @@
-file path is required and must be supplied or set in the script
-Usage: ./testflight_post [-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]

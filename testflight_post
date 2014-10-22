@@ -58,7 +58,7 @@ PRINT_VERSION(){
 }
 
 PRINT_HELP(){
-	echo usage: ${NAME} ${EXPECTED_FLAGS}
+	echo "Usage: ${NAME} ${EXPECTED_FLAGS}"
 	echo
 	echo "Options"
 	echo " -v            	   show version"
@@ -71,6 +71,21 @@ PRINT_HELP(){
 	echo " -t            	   set team API token"
 	echo " -z            	   set path of dSYM zip file"
 	echo "(-h)           	   show this help"
+}
+
+RUN_CMD() {
+	eval ${MSG}
+	if [ $? != 0 ]; then
+		exit 1
+	fi
+
+	echo
+	echo "Uploaded to TestFlight"
+
+	if [ "${AUTO_OPEN}" = 1 ]; then
+		open "https://testflightapp.com/dashboard/builds/"
+	fi
+	exit 0
 }
 
 while getopts "vdanc:w:u:t:z:h" VALUE "${@}" ; do
@@ -203,10 +218,4 @@ if [ "${DRY_RUN}" = 1 ] ; then
 	exit 0
 fi
 
-eval "${MSG}"
-echo
-echo "Uploaded to TestFlight"
-
-if [ "${AUTO_OPEN}" = 1 ]; then
-	open "https://testflightapp.com/dashboard/builds/"
-fi
+RUN_CMD
