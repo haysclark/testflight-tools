@@ -1,4 +1,5 @@
 #!/usr/bin/env bats
+
 setup() {
 	EXPECTED_USAGE="Usage: ./testflight_post [-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]"
 }
@@ -7,7 +8,9 @@ setup() {
     command -v testflight_post
 }
 
-@test "Script Should Output Expected Requirements" {	
+@test "Script Should Output Expected Requirements" {
+	EXPECTED_USAGE="Usage: ./testflight_post [-h] [-v] [-d] [-a] [-n] [-c custCurl] [-w custUrl] [-u uploadToken] [-t teamToken] [-z dSYMfile] [datafile] [notes]"
+
 	run testflight_post
 
 	[ "$status" -eq 1 ]
