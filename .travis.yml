@@ -4,5 +4,6 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq bats
   - chmod +x testflight_post
+  - export PATH=$PATH:$PWD
 script:
   - bats test
