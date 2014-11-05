@@ -2,8 +2,11 @@ language: c
 before_install:
   - sudo add-apt-repository ppa:duggan/bats --yes
   - sudo apt-get update -qq
+  # Install BATS
   - sudo apt-get install -qq bats
-  - chmod +x testflight_post
+  # make script executable
+  - chmod +x testflight_post.sh
+  # Add current dir to path so Bats can easily run script
   - export PATH=$PATH:$PWD
 script:
   - bats test

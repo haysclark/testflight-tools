@@ -1,5 +1,7 @@
-testflight-tools [![Build Status](https://travis-ci.org/haysclark/testflight-tools.png)](https://travis-ci.org/haysclark/testflight-tools)
+testflight-tools
 ================
+
+[![Build Status](https://travis-ci.org/haysclark/testflight-tools.sh.svg?branch=master)](https://travis-ci.org/haysclark/testflight-tools.sh)
 
 TestFlight-tools is an un-official command-line tool set which wraps the Official TestFlight upload API.  Currently the soul script, 'testflight_post', makes it very easy to push iOS IPA's or Android APK's to TestFlight.  The script is intented to be integrated into Jenkins or other CI automation environments or to simple be run locally via Terminal.
 
